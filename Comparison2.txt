@@ -1,3 +1,4 @@
+mag96_green
 GoldenPlate+Blue
 TipBox-C200uL
 mag96_green
