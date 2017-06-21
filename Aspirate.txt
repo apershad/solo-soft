@@ -1,0 +1,43 @@
+mag96_green
+GoldenPlate+Blue
+TipBox-C200uL
+mag96_green
+GoldenPlate
+GoldenPlate+Blue
+Aspirate
+<Position# ONLY IF Aspirate from Plate Position>
+<If Aspirate from Named Point, Aspirate Volume is here>
+2
+<Syringe Speed %>
+<1 if "Start By Emptying syringe" is checked, 0 if not>
+<True if Aspirate from Plate Position, False if Aspirate from 'Named' Point>
+<True if Aspirate from 'Named' Point, False if Aspirate from Plate Position>
+<True if Row Order, False if Column Order>
+<True if Column Order, False if Row Order>
+<If Aspirate from Plate, then Position1; If Aspirate from 'Named Point', then the position chosen as Aspirate Point>
+<Asp X Shift>
+<Asp Y Shift>
+<Asp Z Shift
+<1 if "Do Tip Touch", 0 if not>
+<Tip X Shift>
+<Tip Y Shift>
+<Tip Z Shift>
+
+<Multiple Wells - # of Aspiration on each pass>
+<Backlash>
+<Pre-Aspirate Volume>
+<1 if Mix at Start>
+<Mix Cycles>
+<Mix Volume>
+a
+0
+0
+<Dispense Height (above Bottom IF PLATE POSITION // from Point IF 'NAMED'*)>
+<Delay After Dispense>	
+< ONLY PUT 96 WELL PLATE HERE IF ASPIRATE FROM PLATE POSITION>
+<Dwell After Aspirate>
+<1 if "Find Bottom of Vessel is Checked" otherwise 0>
+<???????????????>
+<1 if Reverse Order>
+<Post Aspirate Volume>
+!@#$
