@@ -6,9 +6,9 @@ Dispense
 <Backlash>
 <True if Dispense to Plate Position>
 <True if Dispense to 'Named' Point>
-True
-False
-Position1
+<True if Row Order, False if Column Order>
+<True if Column Order, False if Row Order>
+<If Dispense to 'Named Point', then Dispense Point (otherwise default it to Position 1 b/c doesn't matter>
 <X dispense shift>
 <Y dispense shift>
 <Z dispense shift>
@@ -34,5 +34,5 @@ a
 0,0,0,0,0,0,0,0,0,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0
-0
+<1 if Reverse Order, otherwise 0>
 !@#$
