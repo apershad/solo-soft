@@ -1,0 +1,38 @@
+Dispense
+<Position#/Location>
+<If Dispense to 'Named' Point, this is Dispense Volume>
+2
+<Syringe Speed>
+<Backlash>
+<True if Dispense to Plate Position>
+<True if Dispense to 'Named' Point>
+True
+False
+Position1
+<X dispense shift>
+<Y dispense shift>
+<Z dispense shift>
+<1 if "Do Tip Touch", else 0>
+<X Tip Touch shift>
+<Y tip touch shift>
+<Z tip touch shift>
+
+<No. dispenses on each pass - MULTIPLE WELLS>
+<Dwell after dispense>
+<Blow-off>
+0
+0
+0
+a
+0
+0
+0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0
+0
+!@#$
