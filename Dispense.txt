@@ -20,12 +20,12 @@ Position1
 <No. dispenses on each pass - MULTIPLE WELLS>
 <Dwell after dispense>
 <Blow-off>
-0
-0
-0
+<1 if Mix at Finish, 0 if Not>
+<Mix Cycles>
+<Mix Volume>
 a
-0
-0
+<Aspirate Height>
+<Delay After Aspirate>
 0,0,0,0,0,0,0,0,0,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0
 0,0,0,0,0,0,0,0,0,0,0,0
