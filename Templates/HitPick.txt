@@ -48,12 +48,12 @@ C:\Users\HudsonSoloSimulation\Downloads\HitPickOutput.csv
 <Target Mix Cycles>
 <Target Mix Volume>
 <Target Aspirate Height (above BOTTOM)>
-False,False,False,False,False,False,False,False,False,False,False,False
-False,False,False,False,False,False,False,False,False,False,False,False
-False,False,False,False,False,False,False,False,False,False,False,False
-False,False,False,False,False,False,False,False,False,False,False,False
-False,False,False,False,False,False,False,False,False,False,False,False
-False,False,False,False,False,False,False,False,False,False,False,False
-False,False,False,False,False,False,False,False,False,False,False,False
-False,False,False,False,False,False,False,False,False,False,False,False
+<Target Plate Row 1>
+<Target Plate Row 2>
+<Target Plate Row 3>
+<Target Plate Row 4>
+<Target Plate Row 5>
+<Target Plate Row 6>
+<Target Plate Row 7>
+<Target Plate Row 8>
 !@#$
