@@ -1,0 +1,17 @@
+Prime
+<Priming Position>
+<Syringe Speed (%)>
+True
+False
+False
+0
+a
+2
+True
+1
+*
+<Aspirate or Dispense Volume>
+<True if FILL Syringe (ALL OTHERS False)>
+<True if EMPTY Syringe (ALL OTHERS False)>
+<True if Aspirate Volume Value (ALL OTHERS False)>
+<True if Dispense Volume Value (ALL OTHERS False)>

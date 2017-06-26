@@ -1,0 +1,59 @@
+HitPick
+a
+2
+<1 if 'Use Over-Aspirate Technique'>
+<Dispense X Shift (mm)>
+<Dispense Y Shift (mm)>
+<Dispense Z Shift (mm)>
+<Position of Source Plate>
+<Syringe Speed for Source>
+<1 if 'Start by Emptying Syringe', 0 otherwise>
+<Source CSV Folder Location>
+<Aspirate X Shift>
+<Aspirate Y Shift>
+<Aspirate Z Shift>
+<1 if 'Do Tip Touch', 0 if not>
+<Aspirate Tip Touch X Shift>
+<Aspirate Tip Touch Y Shift>
+<Aspirate Tip Touch Z Shift>
+<Backlash (uL)>
+<Pre-Aspirate (uL)>
+<Max Volume per Aspiration>
+<Volume for Over Aspirate Technique>
+<Position to Flush to>
+<0 if Leave in Tip, 1 if Return to Source, 2 if Flush to Position>
+<Position of Target Plate>
+<Syringe Speed Target Plate>
+<Backlash Target Plate (uL)>
+<True if Dispense Row Order>
+<True if Dispense Column Order>
+<Dispense (Target) X Shift>
+<Dispense (Target) Y Shift>
+<Dispense (Target) Z Shift>
+<1 if Dispense Do Tip Touch>
+<Dispense Tip Touch X Shift (mm)>
+<Dispense Tip Touch Y Shift (mm)>
+<Dispense Tip Touch Z Shift (mm)>
+C:\Users\HudsonSoloSimulation\Downloads\HitPickOutput.csv
+<No. of Target Wells per Source Well>
+<Blow-off Target Plate (uL)
+*
+*
+*
+<1 if Aspirate 'Mix at Start'>
+<Source Mix Cycles>
+<Source Mix Volume>
+<Source Dispense Height (above BOTTOM)>
+<1 if Dispense 'Mix at End'>
+<Target Mix Cycles>
+<Target Mix Volume>
+<Target Aspirate Height (above BOTTOM)>
+False,False,False,False,False,False,False,False,False,False,False,False
+False,False,False,False,False,False,False,False,False,False,False,False
+False,False,False,False,False,False,False,False,False,False,False,False
+False,False,False,False,False,False,False,False,False,False,False,False
+False,False,False,False,False,False,False,False,False,False,False,False
+False,False,False,False,False,False,False,False,False,False,False,False
+False,False,False,False,False,False,False,False,False,False,False,False
+False,False,False,False,False,False,False,False,False,False,False,False
+!@#$
