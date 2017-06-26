@@ -1,0 +1,5 @@
+GetTip
+<Position of Tip Box>
+<Named Position of Tip Diposal>
+<How many tips to grab>
+<1 if Automatic Tip Selection>

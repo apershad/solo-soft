@@ -1,0 +1,12 @@
+GetBottom
+<Position You want to check Well Bottom>
+<True if Row Order, False if Column Order>
+<True if Column Order, False if Row Order>
+<Output CSV file>
+<Number of Wells to Search on Each Pass (-1 if ALL)>
+<Distance above well to start search (mm)>
+<Defaults to 5 - String wasn't causing error in Simulation though>
+<Defualts to 5 - String wasn't causing error in Simulation though>
+*
+*
+<96 well plate - True for which wells are being searched and False for other wells>
