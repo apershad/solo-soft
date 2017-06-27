@@ -14,7 +14,7 @@ Aspirate
 <True if Aspirate from 'Named' Point, False if Aspirate from Plate Position>
 <True if Row Order, False if Column Order>
 <True if Column Order, False if Row Order>
-<If Aspirate from Plate, then Position1; If Aspirate from 'Named Point', then the position chosen as Aspirate Point>
+<If Aspirate from 'Named Point', then the position chosen as Aspirate Point (otherwise default it to Position 1 b/c doesn't matter>
 <Asp X Shift>
 <Asp Y Shift>
 <Asp Z Shift
@@ -34,7 +34,7 @@ a
 0
 <Dispense Height (above Bottom IF PLATE POSITION // from Point IF 'NAMED'*)>
 <Delay After Dispense>	
-< ONLY PUT 96 WELL PLATE HERE IF ASPIRATE FROM PLATE POSITION>
+<ONLY PUT 96 WELL PLATE HERE IF ASPIRATE FROM PLATE POSITION>
 <Dwell After Aspirate>
 <1 if "Find Bottom of Vessel is Checked" otherwise 0>
 <???????????????>
