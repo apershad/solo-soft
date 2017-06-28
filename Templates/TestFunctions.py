@@ -16,7 +16,9 @@ def pause ( file, canEndRun, autoContinue, timeToWait, message ) :
 
 	file.write("!@#$\r\n")
 
-def getTip ( autoSelect = True, tipDisp = 'TipDisposal', tipLoc = 'Position3', numTips = 8 ) :
+# Use this function to grab Tips from the Tip Box
+
+def getTip ( file, autoSelect = True, tipDisp = 'TipDisposal', tipLoc = 'Position3', numTips = 8 ) :
 	file.write("GetTip\r\n")
 	file.write(tipLoc + "\r\n")
 	file.write(tipDisp + "\r\n")
@@ -25,13 +27,102 @@ def getTip ( autoSelect = True, tipDisp = 'TipDisposal', tipLoc = 'Position3', n
 		file.write("1\r\n")
 	file.write("!@#$\r\n")
 
-fileName = raw_input("What do you want to call this protocol?")
-fileName = fileName.strip() + ".hso"
-file = open(fileName, 'w+')
+def loop ( file, iter ) :
+	file.write("Loop\r\n")
+	file.write(str(iter) + "\r\n")
+	file.write("!@#$\r\n")
+
+def endLoop ( file ):
+	file.write("EndLoop\r\n!@#$\r\n")
+
+def setSpeed ( file, speed = 100 ) :
+	file.write (str(speed) +"\r\n!@#$\r\n")
+
+def shuckTip (file, tipDisp = 'TipDisposal') :
+	file.write("ShuckTip\r\n")
+	file.write(tipDisp + "\r\n!@#$\r\n")
+
+# def dispense ( file, speed, backlash, blow_off, namedPos = [True, beads, 80], mixing = [0, 0, 0, 0, 0, 0], rowOrCol = [True, False], shift = [0, 0, 0, 0, 0, 0, 0])
+# file 
+# named or plate
+	# if named ask for named point, dispense vol
+	# if plate ask for plate loc, ask for a plate typed out, ask for # of dispenses to perform on each pass
+# syringe speed
+# backlash
+# blow-off
+# shifts = [XShift, YShift, ZShift, DoTipTouch?, Tip Touch]
+# roworcol = [isRow, isReverse]
+# mixing = [mix at finish, mix cycles, mix vol, asp height, delay, dwell]
+#def dispense ( file, isPlate, platePos, plate, rowOrCol, param) : # speed, backlash, blow_off, shift, rowOrCol, mixing ) :
+#	file.write("Dispense\r\n")
+#	if named :
+#		file.write("")
+#		pointName = raw_input("Name the exact point to dispense to. ")
+#		vol = raw_input("What's the volume to dispense? ")
+#	else :
+#		print (plateLocations)
+#		position = "Position" + raw_input("Please Enter the line number of the plate you want. Also keep in account how many plate locations your Hudson has. ");
+
+# dispense will write the protocol to dispense to a specific point
+	# file = spec file
+	# loc = String containing loc name (case/style is very important)
+		# that's either plate position (Position1....Position6 etc)
+		# OR named point like Beads, 500uL Eppindorf, etc. 
+	# vol = dispense volume
+		# either 96 well plate in the form [[],[],[],etc] where each inner list is a row
+			# represent each row as 0,0,0,0,0,0,0,0,0,0,0,0
+			# replace the 0's with whatever you watn the dispense volume to be
+		# OR just a single integer representing volume
+	# param = LIST detailing following information in this order:
+		# Syringe-Speed = this is a % value between 0 and a 100 
+		# Backlash = an integer representing a uL backlash value
+		# Blow-off = an integer representing a uL blow-off value
+	# shift = [X Shift, Y shit, Z shift, doTipTouch, X Tip Touch Shift, Y Tip Touch Shift, Z Tip Touch Shift]
+		# X shift, Y Shift, Z shift - integer value mm
+		# doTipTouch = 0 (NO) or 1 (YES)
+		# X Tip Touch Shift, Y Tip Touch Shift, Z Tip Touch Shift - integer value mm
+#def dispense (file, vol, loc, param, mix, order, shift) :
+#	file.write ("Dispense\r\n")
+#	plate = [[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0]]
+#	if !(isinstance( vol, int)) :
+#		isPlate = True
+#		plate = vol
+#		point = loc
+#		file.write(point + "\r\n")
+#		file.write("\r\n")
+#	else :
+#		isPlate = False
+#		point = loc
+#		file.write("\r\n")
+#		file.write(str(vol) + "\r\n")
+#	file.write(str(param[0]) + "\r\n")
+#	file.write(str(param[1]) + "\r\n")
+#	file.write(str(isPlate) + "\r\n")
+#	file.write(str(!isPlate) + "\r\n")
+#	isRow = order[0]
+#	file.write(str(isRow) + "\r\n")
+#	file.write(str(!isRow) + "\r\n")
+#	file.write(point + "\r\n")
+#	for i in range(0,7) :
+#		file.write(str(shift[i]) + "\r\n")
+#	file.write("\r\n")
+#	file.write(str(1) + "\r\n")
+#	file.write(str(mix[5]) + "\r\n")
+#	file.write(str(param[2]) + "\r\n")
+#	for i in range (0, 5) :
+#		file.write(str(mix[i]) + "\r\n")
+#		if i == 2 :
+#			file.write("a\r\n")
+#	for (i in range(0,9)) :
+#		file.write(str)
+file = open("Test.hso", 'w+')
 plateLocations = "mag96_green\r\nGoldenPlate+Blue\r\nTipBox-C200uL\r\nmag96_green\r\nGoldenPlate\r\nGoldenPlate+Blue\r\n"
 file.write(plateLocations)
 pause ( file = file, canEndRun = False, autoContinue = True, timeToWait = 2, message = "hello")
-getTip ( )
-
+loop ( file = file, iter = 4 )
+getTip ( file = file )
+shuckTip (file = file )
+endLoop ( file = file )
+# dispense( file, True)
 
 
