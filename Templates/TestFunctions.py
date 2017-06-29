@@ -81,48 +81,52 @@ def shuckTip (file, tipDisp = 'TipDisposal') :
 		# X shift, Y Shift, Z shift - integer value mm
 		# doTipTouch = 0 (NO) or 1 (YES)
 		# X Tip Touch Shift, Y Tip Touch Shift, Z Tip Touch Shift - integer value mm
-#def dispense (file, vol, loc, param, mix, order, shift) :
-#	file.write ("Dispense\r\n")
-#	plate = [[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0]]
-#	if !(isinstance( vol, int)) :
-#		isPlate = True
-#		plate = vol
-#		point = loc
-#		file.write(point + "\r\n")
-#		file.write("\r\n")
-#	else :
-#		isPlate = False
-#		point = loc
-#		file.write("\r\n")
-#		file.write(str(vol) + "\r\n")
-#	file.write(str(param[0]) + "\r\n")
-#	file.write(str(param[1]) + "\r\n")
-#	file.write(str(isPlate) + "\r\n")
-#	file.write(str(!isPlate) + "\r\n")
-#	isRow = order[0]
-#	file.write(str(isRow) + "\r\n")
-#	file.write(str(!isRow) + "\r\n")
-#	file.write(point + "\r\n")
-#	for i in range(0,7) :
-#		file.write(str(shift[i]) + "\r\n")
-#	file.write("\r\n")
-#	file.write(str(1) + "\r\n")
-#	file.write(str(mix[5]) + "\r\n")
-#	file.write(str(param[2]) + "\r\n")
-#	for i in range (0, 5) :
-#		file.write(str(mix[i]) + "\r\n")
-#		if i == 2 :
-#			file.write("a\r\n")
-#	for (i in range(0,9)) :
-#		file.write(str)
-file = open("Test.hso", 'w+')
+def dispense (file, vol, loc, param, mix, order, shift) :
+	file.write ("Dispense\r\n")
+	plate = [[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0]]
+	if not (isinstance( vol, int)) :
+		isPlate = True
+		plate = vol
+		point = loc
+		file.write(point + "\r\n")
+		file.write("\r\n")
+	else :
+		isPlate = False
+		point = loc
+		file.write("\r\n")
+		file.write(str(vol) + "\r\n")
+	file.write(str(param[0]) + "\r\n")
+	file.write(str(param[1]) + "\r\n")
+	file.write(str(isPlate) + "\r\n")
+	file.write(str(not isPlate) + "\r\n")
+	isRow = order[0]
+	file.write(str(isRow) + "\r\n")
+	file.write(str(not isRow) + "\r\n")
+	file.write(point + "\r\n")
+	for i in range(0,7) :
+		file.write(str(shift[i]) + "\r\n")
+	file.write("\r\n")
+	file.write(str(1) + "\r\n")
+	file.write(str(mix[5]) + "\r\n")
+	file.write(str(param[2]) + "\r\n")
+	for i in range (0, 5) :
+		file.write(str(mix[i]) + "\r\n")
+		if i == 2 :
+			file.write("a\r\n")
+	for i in range(0,8) :
+		file.write(",".join(str(j) for j in plate[i]))
+		file.write("\r\n")
+	file.write(str(order[1]) + "\r\n!@#$\r\n")
+
+#def aspirate (file, )
+file = open("GetDispenseShuck.hso", 'w+')
 plateLocations = "mag96_green\r\nGoldenPlate+Blue\r\nTipBox-C200uL\r\nmag96_green\r\nGoldenPlate\r\nGoldenPlate+Blue\r\n"
 file.write(plateLocations)
 pause ( file = file, canEndRun = False, autoContinue = True, timeToWait = 2, message = "hello")
 loop ( file = file, iter = 4 )
 getTip ( file = file )
+dispense( file = file, vol = 4, loc = "Position1", param = [3,3,3], mix = [0,0,0,0,0,0], order = [True, 0], shift = [0,0,0,0,0,0,0])
 shuckTip (file = file )
 endLoop ( file = file )
-# dispense( file, True)
 
 

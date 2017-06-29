@@ -12,7 +12,7 @@ Aspirate
 <1 if "Start By Emptying syringe" is checked, 0 if not>
 <True if Aspirate from Plate Position, False if Aspirate from 'Named' Point>
 <True if Aspirate from 'Named' Point, False if Aspirate from Plate Position>
-<True if Row Order, False if Column Order>
+<True if Row Order, False if Column Order>x`
 <True if Column Order, False if Row Order>
 <If Aspirate from 'Named Point', then the position chosen as Aspirate Point (otherwise default it to Position 1 b/c doesn't matter>
 <Asp X Shift>
