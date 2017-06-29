@@ -95,6 +95,7 @@ def dispense (file, vol, loc, param, mix, order, shift) :
 		point = loc
 		file.write("\r\n")
 		file.write(str(vol) + "\r\n")
+	file.write(str(2) + "\r\n")
 	file.write(str(param[0]) + "\r\n")
 	file.write(str(param[1]) + "\r\n")
 	file.write(str(isPlate) + "\r\n")
