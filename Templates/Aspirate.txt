@@ -1,9 +1,3 @@
-mag96_green
-GoldenPlate+Blue
-TipBox-C200uL
-mag96_green
-GoldenPlate
-GoldenPlate+Blue
 Aspirate
 <Position# ONLY IF Aspirate from Plate Position>
 <If Aspirate from Named Point, Aspirate Volume is here>

@@ -81,18 +81,17 @@ def shuckTip (file, tipDisp = 'TipDisposal') :
         # X shift, Y Shift, Z shift - integer value mm
         # doTipTouch = 0 (NO) or 1 (YES)
         # X Tip Touch Shift, Y Tip Touch Shift, Z Tip Touch Shift - integer value mm
-def dispense (file, vol, loc, param, mix, order, shift) :
+def dispense (file, vol, loc, param, mix, order, shift, numAspir = None) :
     file.write ("Dispense\r\n")
     plate = [[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0]]
+    point = loc 
     if not (isinstance( vol, int)) :
         isPlate = True
-        plate = vol
-        point = loc
+        plate = vol       
         file.write(point + "\r\n")
         file.write("\r\n")
     else :
         isPlate = False
-        point = loc
         file.write("\r\n")
         file.write(str(vol) + "\r\n")
     file.write(str(2) + "\r\n")
@@ -119,11 +118,58 @@ def dispense (file, vol, loc, param, mix, order, shift) :
         file.write("\r\n")
     file.write(str(order[1]) + "\r\n!@#$\r\n")
 
-def aspirate (file, vol, loc, param, mix, order, shift)
+def aspirate (file, vol, loc, param, mix, order, shift, findBottom = True, beginEmpty = False, numAspir = 1 , pre_post_vol = [0,0]) :
+    file.write("Aspirate\r\n")
+    point = loc
+    if not (isinstance( vol, int )) :
+        isPlate = True
+        plate = vol
+        file.write("{Plate_Position}\r\n".format(point))
+        file.write("\r\n")
+    else :
+        isPlate = False
+        file.write("\r\n")
+        file.write("{Aspirate_Volume}\r\n".format(str(vol))
+    file.write(str(2) + "\r\n")
+    file.write("{Syringe_Speed}\r\n".format(str(param[0])))
+    if not beginEmpty : 
+        file.write("{Start_by_Emtpying_Syringe}\r\n".format(str(0)))
+    else : 
+        file.write("{Start_by_Emptying_Syringe}\r\n".format(str(1)))
+    file.write("{Aspirate_from_Plate}\r\n".format(str(isPlate)))
+    file.write("{Aspirate_from_Named_Position}\r\n".format(str(not isPlate)))
+    isRow = order[0]
+    file.write("{Row_Order}\r\n".format(str(isRow)))
+    file.write("{Column_Order}\r\n".format(str(not isRow)))
+    # Aspirate Point only matters if you're aspirating from named point
+    # Otherwise we'll just put down whatever the plate position was because this is irrelevant
+    file.write("{Aspirate_Point}\r\n".format(point)) 
+    file.write(str(e) + "\r\n") for e in shift
+    file.write("\r\n")
+    file.write("{Num_Aspirations_per_pass}\r\n".format(str(NumAspir)))
+    file.write("{Backlash_Volume}\r\n".format(str(param[1])))
+    file.write("{Pre_Aspirate_Volume}\r\n".format(str(pre_post_vol[0])))
+    for i in range(0,6) :
+        file.write(str(mix[i]) + "\r\n")
+        if i == 2 :
+            file.write("a\r\n0\r\n0\r\n")
+        if i == 4 && isPlate:
+            for i in range(0,8) :
+                file.write(",".join(str(e) for e in plate[i]))
+                file.write("\r\n")
+    if findBottom :
+        file.write(str(1) + "\r\n")
+    else :
+        file.write(str(0) + "\r\n")
+    file.write("\r\n")
+    file.write("{Reverse_Order}\r\n".format(str(order[1])))
+    file.write("{Post_Aspirate_Volume}\r\n".format(str(pre_post_vol[1])))
+
 file = open("GetDispenseShuck.hso", 'w+')
-plateLocations = "mag96_green\r\nGoldenPlate+Blue\r\nTipBox-C200uL\r\nmag96_green\r\nGoldenPlate\r\nGoldenPlate+Blue\r\n"
+plateLocations = "GoldenPlate\r\nGoldenPlate+Blue\r\nTipBox-C200uL\r\nmag96_green\r\nGoldenPlate\r\nGoldenPlate+Blue\r\n"
 file.write(plateLocations)
 pause ( file = file, canEndRun = False, autoContinue = True, timeToWait = 2, message = "hello")
+setSpeed( file = file, speed = 50 )
 loop ( file = file, iter = 4 )
 getTip ( file = file )
 dispense( file = file, vol = 4, loc = "Position1", param = [3,3,3], mix = [0,0,0,0,0,0], order = [True, 0], shift = [0,0,0,0,0,0,0])
