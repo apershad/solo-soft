@@ -164,6 +164,7 @@ def aspirate (file, vol, loc, param, mix, order, shift, findBottom = True, begin
     file.write("\r\n")
     file.write("{Reverse_Order}\r\n".format(str(order[1])))
     file.write("{Post_Aspirate_Volume}\r\n".format(str(pre_post_vol[1])))
+    file.write("!@#$\r\n")
 
 file = open("GetDispenseShuck.hso", 'w+')
 plateLocations = "GoldenPlate\r\nGoldenPlate+Blue\r\nTipBox-C200uL\r\nmag96_green\r\nGoldenPlate\r\nGoldenPlate+Blue\r\n"

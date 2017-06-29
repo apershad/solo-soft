@@ -34,7 +34,7 @@ a
 <Dispense Tip Touch X Shift (mm)>
 <Dispense Tip Touch Y Shift (mm)>
 <Dispense Tip Touch Z Shift (mm)>
-C:\Users\HudsonSoloSimulation\Downloads\HitPickOutput.csv
+<CSV File that Target Plate Output is in>
 <No. of Target Wells per Source Well>
 <Blow-off Target Plate (uL)
 *
